@@ -67,7 +67,7 @@ void printCard2 (int number2)
 }
 int main()
 {
-	int angka, gamestart, wincount = 0, losecount = 0, gamelength = 0;
+	int angka, gamestart, wincount = 0, losecount = 0, gamelength = 0, draw = 0;
 	char pilihan;
 	
 	//Main Menu
@@ -104,22 +104,32 @@ int main()
 	printCard2(card2);
 	
 	//Untuk Pilihan
-	if ((pilihan == 'A' || pilihan == 'a' && card2 > card1) || (pilihan == 'B' || pilihan == 'b' && card2 < card1))
+	if (((pilihan == 'a' || pilihan == 'A') && card2 > card1) || ((pilihan == 'b' || pilihan == 'B') && card2 < card1))
 	{
 		cout << "Benar!" << endl;
 		wincount++;
 		gamelength++;
 	}
-	else
+	else if ( card2 == card1)
+	{
+		cout << "Draw!" << endl;
+		draw++;
+		gamelength++;
+	}
+	else 
 	{
 		cout << "Salah!" << endl;
 		losecount++;
 		gamelength++;
 	}	
 	
+	
+	
+	
 	//Skor
 	cout << endl;
 	cout << "Win : " << wincount << endl;
+	cout << "Draw : " << draw << endl;
 	cout << "Lose : " << losecount << endl;	
 	
 	cout << endl;
